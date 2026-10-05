@@ -53,14 +53,14 @@ button.main{background:var(--ac);color:var(--acfg);border-color:var(--ac);font-w
 </main>
 
 <script>
-function intent(u,pkg){var m=u.match(/^https:\/\/([^\/]+)(\/.*)$/);return "intent://"+m[1]+m[2]+"#Intent;scheme=https;action=android.intent.action.VIEW;package="+pkg+";S.browser_fallback_url="+encodeURIComponent(u)+";end"}
+function intent(u,pkg,fb){var m=u.match(/^([a-z][a-z0-9+.-]*):\/\/([^\/?#]*)(.*)$/);return "intent://"+m[2]+m[3]+"#Intent;scheme="+m[1]+";action=android.intent.action.VIEW;package="+pkg+";S.browser_fallback_url="+encodeURIComponent(fb||u)+";end"}
 var AIS=[
  {id:"chatgpt",name:"ChatGPT",url:function(q){return "https://chatgpt.com/?q="+q},app:function(q){return intent("https://chatgpt.com/?q="+q,"com.openai.chatgpt")},auto:true},
  {id:"claude",name:"Claude",url:function(q){return "https://claude.ai/new?q="+q},app:function(q){return intent("https://claude.ai/new?q="+q,"com.anthropic.claude")},auto:true},
  {id:"perplexity",name:"Perplexity",url:function(q){return "https://www.perplexity.ai/search?q="+q},app:function(q){return intent("https://www.perplexity.ai/search?q="+q,"ai.perplexity.app.android")},auto:true},
  {id:"gemini",name:"Gemini",url:function(q){return "https://gemini.google.com/app?q="+q},auto:true},
  {id:"grok",name:"Grok",url:function(q){return "https://grok.com/?q="+q},app:function(q){return intent("https://grok.com/?q="+q,"ai.x.grok")},auto:true},
- {id:"copilot",name:"Copilot",url:function(q){return "https://copilot.microsoft.com/?q="+q},app:function(q){return "intent://chat?q="+q+"#Intent;scheme=ms-copilot;package=com.microsoft.office.officehubrow;S.browser_fallback_url="+encodeURIComponent("https://copilot.microsoft.com/?q="+q)+";end"},auto:true}
+ {id:"copilot",name:"Copilot",url:function(q){return "https://copilot.microsoft.com/?q="+q},app:function(q){return intent("https://copilot.microsoft.com/?q="+q,"com.microsoft.office.officehubrow")},auto:true}
 ];
 var p=document.getElementById("p"),msg=document.getElementById("msg");
 var chips=document.getElementById("chips"),list=document.getElementById("list");
