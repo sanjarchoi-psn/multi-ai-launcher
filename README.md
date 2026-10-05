@@ -1,6 +1,6 @@
 # multi-ai-launcher
 
-프롬프트를 한 번 입력해 ChatGPT, Claude, Gemini, Perplexity, Grok을 열어 주는 안드로이드용 설치형 웹앱(PWA)입니다.
+프롬프트를 한 번 입력해 ChatGPT, Claude, Gemini, Perplexity, Grok, Copilot을 열어 주는 안드로이드용 설치형 웹앱(PWA)입니다.
 
 ## 배포 (GitHub Pages)
 
